@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
-  final List<ShopItem> items = [
-      ShopItem("Lihat Produk", Icons.checklist),
-      ShopItem("Tambah Produk", Icons.add_shopping_cart),
-      ShopItem("Logout", Icons.logout),
+  final List<TaskItem> items = [
+      TaskItem("Lihat Task", Icons.checklist),
+      TaskItem("Tambah Task", Icons.add),
+      TaskItem("Logout", Icons.logout),
   ];
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -24,7 +24,7 @@ class MyHomePage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: const Text(
-              'Shopping List',
+              'Task List',
             ),
           ),
           body: SingleChildScrollView(
@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                   child: Text(
-                    'PBP Shop', // Text yang menandakan toko
+                    'PBP Task', // Text yang menandakan toko
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
@@ -55,9 +55,9 @@ class MyHomePage extends StatelessWidget {
                   mainAxisSpacing: 10,
                   crossAxisCount: 3,
                   shrinkWrap: true,
-                  children: items.map((ShopItem item) {
+                  children: items.map((TaskItem item) {
                     // Iterasi untuk setiap item
-                  return ShopCard(item);
+                  return TaskCard(item);
                 }).toList(),
               ),
             ],
@@ -68,22 +68,22 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class ShopItem {
+class TaskItem {
   final String name;
   final IconData icon;
 
-  ShopItem(this.name, this.icon);
+  TaskItem(this.name, this.icon);
 }
 
-class ShopCard extends StatelessWidget {
-  final ShopItem item;
+class TaskCard extends StatelessWidget {
+  final TaskItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const TaskCard(this.item, {super.key}); // Constructor
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.indigo,
+      color: Colors.orange,
       child: InkWell(
         // Area responsive terhadap sentuhan
         onTap: () {

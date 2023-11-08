@@ -1,16 +1,58 @@
 # task_manager
 
-A new Flutter project.
+### Muhammad Iqbal - 2206082152
+<details>
+<summary>TUGAS 1</summary>
 
-## Getting Started
+## 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
 
-This project is a starting point for a Flutter application.
+* statefull widget adalah widget yang bisa berubah tampilan jika user berinteraksi dengannya. contoh dari stateless widget adalah CheckBox, Radio, Slider, Inkwell, Form, dan TextField. statefull widget merupakan subclass dari StatefulWidget
 
-A few resources to get you started if this is your first Flutter project:
+* stateless widget tidak dapat berubah, contohnya seperti Icon, IconButton.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+state dari widget disimpan dalam objek State. state berisi nilai yang dapat dirubah seperti slider, current value, dan lainnya. ketika widget state berubah objek memanggil fungsi setState(). [sumber](https://docs.flutter.dev/ui/interactivity#:~:text=to%20Managing%20state.-,Stateful%20and%20stateless%20widgets,are%20examples%20of%20stateless%20widgets.)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
+
+1. `MaterialApp`: berguna untuk mengatur tema dan konfigurasi awal aplikasi
+2. `Scaffold`: mengatur kerangka tampilan aplikasi dengan AppBar dan body
+3. `Appbar`: menampilkan bar atas aplikasi
+4. `SingleChildScrollView`:  mengelilingi konten agar dapat di scroll
+5. `Padding`: digunakan untuk memberikan padding ke dalam widget lainnya
+6. `Column`: mengatur child agar vertikal
+7. `Text`: untuk menampilkan text
+8. `GridView.Count` : menampilkan elemen-elemen dalam grid dengan jumlah kolom tetap
+9. `ShopCard`: menampilkan kartu toko dengan ikon dan teks.
+10. `Material`: memberikan latar belakang kartu dengan warna tertentu
+11. `InkWell`:  untuk membuat area yang responsif terhadap sentuhan
+12. `SnackBar`: untuk menampilkan pesan sementara ketika salah satu kartu toko diklik
+
+
+## 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+
+1. membuat proyek flutter baru bernama task_manager, menggunakan command:
+`flutter create task_manager`
+2. membuat file menu.dart
+3. merapikan file main.dart
+* menambahkan `import 'package:flutter/material.dart';`  dan `import 'package:task_manager/menu.dart';`
+* menghapus baris 
+```
+class MyHomePage ... {
+    ...
+}
+
+class _MyHomePageState ... {
+    ...
+}
+```
+*   
+4. merubah material color pada main.dart
+`colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),`
+5. merubah sifat widget halaman menu menjadi stateless:
+* ubah `home: const MyHomePage(title: 'Flutter Demo Home Page'),` menjadi `MyHomePage()`
+
+6. mendefinisikan kelas ShopItem
+7. menambahkan list berisi objek ShopItem
+8. menambahkan widget scaffold dalam widget build
+9. membuat widget stateless baru yaitu ShopCard
+</details>
