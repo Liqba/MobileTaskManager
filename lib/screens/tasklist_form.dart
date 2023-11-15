@@ -19,7 +19,7 @@ class _TaskFormPageState extends State<TaskFormPage> {
           appBar: AppBar(
             title: const Center(
               child: Text(
-                'Form Tambah Produk',
+                'Form Tambah Task',
               ),
             ),
             backgroundColor: Colors.indigo,
@@ -36,8 +36,8 @@ class _TaskFormPageState extends State<TaskFormPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          hintText: "Nama Produk",
-                          labelText: "Nama Produk",
+                          hintText: "Nama Task",
+                          labelText: "Nama Task",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0),
                           ),
@@ -119,7 +119,7 @@ class _TaskFormPageState extends State<TaskFormPage> {
                                 context: context, 
                                 builder: (context) {
                                   return AlertDialog(
-                                    title: const Text('Produk berhasil tersimpan'),
+                                    title: const Text('Task berhasil tersimpan'),
                                     content: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:

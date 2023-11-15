@@ -63,13 +63,51 @@ class _MyHomePageState ... {
 
 ## 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
 
+* Navigator.push() digunakan untuk menambah rute baru kedalam stack navigasi. setiap kali Navigator.push() dipanggil rute baru ditambahkan ke stack navigasi. jika kita ingin balik lagi ke rute sebelumnya kita dapat menggunakan Navigator.pop(). contoh penggunaaan .push() adalah ketika kita memiliki beberapa halaman, seperti halaman detail dan halaman edit.  kita mungkin ingin kembali ke halaman detail setelah menekan tombol back pada halaman edit.
+* Navigator.pushReplacement() mirip dengan Navigator.push() yaitu menambah rute baru ke stack navigasi. pebedaannya Navigator.pushReplacement() mengganti rute saat ini dengan rute baru. sehingga jika kita menggunakan Navigator.pop() kita tidak akan kembali ke rute sebelum pemanggilan Navigator.pushReplacement(). Misalnya, jika kita memiliki aplikasi dengan beberapa halaman seperti Halaman Login, Halaman Dashboard, dan Halaman Register, kita mungkin ingin menggunakan Navigator.pushReplacement() saat berpindah dari Halaman Login ke Halaman Dashboard atau Halaman Register. Dengan ini, pengguna tidak akan dapat kembali ke Halaman Login dengan menekan tombol back
+
+
 ## 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
- 
+* Container: membungkus widget lain dan memberikan padding, margin, dan decoration seperti border dan background color.
+* Column dan Row: menata widget lain secara vertikal (Column) atau horizontal (Row).
+* Stack: menata widget-widget sehingga dapat ditempatkan di mana saja dalam ruang tersedia.
+* ListView dan GridView: menampilkan daftar atau grid dari item.
+* Card: menampilkan konten yang memiliki efek shadow dan border.
+* Drawer: menampilkan menu navigasi yang dapat disembunyikan dan ditampilkan dengan geser.
+* Scaffold: kerangka dasar dari aplikasi Flutter yang mencakup struktur dasar seperti AppBar, BottomNavigationBar, dan Drawer.
+
 ## 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
 
-## 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
- 
-## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+elemen input yang saya gunakaan yaitu TextFormField untuk "Nama task", "deadline", dan "Deskripsi". 
+Alasan menggunakan TextFormField adalah karena TextFormField memungkinkan untuk memvalidasi input pengguna. 
+* di input nama task TextFormField memvalidasi apakah input pengguna kosong atau tidak. Jika input kosong, mengembalikan pesan error "Nama tidak boleh kosong!".
+* di deadline TextFormField memvalidasi apakah input pengguna kosong atau tidak, dan apakah input pengguna berupa angka atau tidak. Jika input kosong, mengembalikan pesan error "deadline tidak boleh kosong!". Jika input bukan angka, mengembalikan pesan error "deadline harus berupa angka!".
+* di Deskripsi TextFormField memvalidasi apakah input pengguna kosong atau tidak. Jika input kosong, mengembalikan pesan error "Deskripsi tidak boleh kosong!".
 
+## 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
+Clean architecture adalah pendekatan dalam pengembangan software yang menekankan pada pemisahan antara komponen-komponen dalam aplikasi. Dalam konteks Flutter, ini mencakup pemisahan antara widget, state, dan business logic.
+Widget: bertanggung jawab untuk menggambar UI dan menangani interaksi pengguna.
+State: mencakup data yang dapat berubah sepanjang hidup widget.
+Business Logic: mencakup logika bisnis dan interaksi dengan database atau API.
+Dengan pendekatan ini, setiap komponen memiliki tanggung jawabnya sendiri dan tidak saling tergantung satu sama lain, sehingga membuat kode lebih mudah untuk dipahami, dikelola, dan diuji.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+1. widget drawer yang berada di kiri halaman.
+2. menambahkan widget drawer ke tiap halaman.
+3. routing tombol yang ada di widget drawer ke halaman yang sesuai. seperti berikut:;
+```
+onTap: () {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+        builder: (context) => MyHomePage(),
+        ));
+},
+```
+4. Buat halaman tasklist_form.dart untuk formulir tambah item baru.
+5. Menamabahkan elemen input untuk name, amount, dan description.
+6. Menambahkan tombol Save.
+7. Validasi setiap elemen input agar tidak boleh kosong dan harus berisi data dengan tipe data yang sesuai.
+8. routing tombol tambah task di halaman menu ke halaman tasklist_form.dart 
 
 </details>
