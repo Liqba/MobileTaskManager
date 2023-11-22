@@ -115,4 +115,57 @@ onTap: () {
 <details> 
 <summary>TUGAS 3</summary>
 
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+- Bisa, tetapi Jika kita tidak membuat model, kita akan mendapatkan data dalam bentuk dynamic, yang berarti kita harus secara manual memastikan bahwa data yang kita ambil adalah data yang kita harapkan. Dengan model, kita bisa memastikan bahwa data yang kita ambil sudah sesuai dengan struktur yang kita definisikan dalam model tersebut.
+
+## Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+- CookieRequest digunakan untuk mengambil cookie yang dibuat oleh Django pada saat user login ke aplikasi. Cookie ini digunakan untuk mengelola session login dan logout dari user. Dengan menggunakan CookieRequest, aplikasi Flutter bisa menyimpan dan mengakses cookie ini saat dibutuhkan, seperti saat melakukan request ke server Django
+
+## Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+- Membuat model data: Menggunakan https://app.quicktype.io/
+
+- Membuat request ke server: membuat request ke server dan mendapatkan data dalam bentuk JSON.
+
+- Mengubah data JSON menjadi model: menggunakan method fromJson yang telah definisikan dalam model data.
+
+- Menampilkan data: menampilkannya pada UI menggunakan widget Flutter
+
+
+## Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+- Mengambil input dari pengguna: Kita menggunakan widget seperti TextField untuk mengambil input dari pengguna, seperti username dan password.
+
+- Membuat request ke server: membuat request ke server Django dengan data yang kita ambil dari input pengguna.
+
+- Menerima response dari server: Server Django akan mengembalikan response yang berisi token jika autentikasi berhasil.
+
+- Menyimpan token: Kita menyimpan token tersebut dalam CookieRequest.
+
+- Menampilkan menu: Setelah token disimpan, tampilkan menu pada Flutter berdasarkan token tersebut
+
+## Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+- ElevatedButton:   membuat tombol yang dapat diakses oleh pengguna.
+- FutureBuilder:   menangani operasi asynchronous, seperti panggilan HTTP ke server.
+- Navigator:   mengendalikan navigasi antar halaman dalam aplikasi.
+- Scaffold:   membuat kerangka dasar dari antarmuka pengguna.
+- Column dan ListView:   mengatur widget dalam susunan vertikal.
+- Text:   menampilkan teks.
+- ListTile:   menampilkan item dalam daftar.
+- SizedBox:   menentukan dimensi tetap dari suatu widget.
+- TextField:   membuat input teks.
+- Card:   membuat elemen card atau kotak dengan tampilan khusus.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+1. Membuat aplikasi Django untuk autentikasi: Pertama, buat aplikasi Django baru 'authenticate' yang akan digunakan untuk mengautentikasi request yang dikirim dari Flutter. kemudian tambahkan aplikasi ini ke setelan INSTALLED_APPS dalam file settings.py Django.
+2. Membuat endpoint untuk autentikasi: Selanjutnya, membuat endpoint yang akan digunakan untuk autentikasi dengan mengatur ini di urls.py dan views.py. Di urls.py, tambahkan URL baru untuk endpoint autentikasi. Di views.py, tambahkan fungsi baru yang akan dipanggil ketika endpoint ini diakses. Fungsi ini akan memeriksa data yang dikirim dalam request dan melakukan autentikasi  .
+3. Instalasi dependensi Flutter: Selanjutnya, instal beberapa dependensi Flutter yang diperlukan untuk proyek kita. Ini meliputi provider dan pbp_django_auth yang digunakan untuk autentikasi dan manajemen state.
+3. Membuat halaman login Flutter: Setelah itu, buat halaman login Flutter yaitu LoginPage yang merupakan StatefulWidget. Dalam LoginPage, buat dua TextEditingController untuk mengendalikan input username dan password. kemudian buat tombol yang akan memanggil fungsi login ketika ditekan.
+4. Membuat model data: membuat model data yang akan digunakan untuk memetakan data JSON yang diterima dari server. model ini dibuat dalam file Dart terpisah dan mendefinisikan properti yang sesuai dengan data JSON dari web Django.
+5. Membuat request ke server: menggunakan package http untuk membuat request ke server dan mendapatkan data dalam bentuk JSON.
+6. Mengubah data JSON menjadi model: Setelah mendapatkan data dalam bentuk JSON, data perlu diubah menjadi model data yang telah definisikan sebelumnya.
+7. Menampilkan data: Setelah memiliki data dalam bentuk model, data bisa ditampilkan pada UI menggunakan widget Flutter.
+8. Membuat form untuk mengirim data ke server: membuat form dalam Flutter yang akan dikirim ke server Django ketika pengguna menekan tombol submit  .
+9. Membuat fungsi di server untuk menerima dan memproses data dari form: Di server Django, membuat fungsi baru dalam views.py yang akan dipanggil ketika data form diterima. Fungsi ini akan memproses data dan menyimpannya ke database  .
+10. Membuat endpoint untuk form: menambahkan URL baru ke urls.py yang akan digunakan untuk endpoint form  .
+11. Membuat fungsi logout: Terakhir, membuat fungsi logout di views.py di aplikasi autentikasi Django agar dapat logout dari aplikasi  .
 </details>
